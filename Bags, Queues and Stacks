@@ -34,4 +34,106 @@ Stacks:
 		
 Resizing array: Grow and shrink array e.g. ArrayList
 	If an array is full, creat a new one of twice the size
+	O(3N) <- N + (2+4+8+..+N)    [N for pushing elements, 2N comes from moving elements to the new array)
+	Shrink when the array is one-quarter(consider we may add more elements).
 	
+	Push(): double size of array when it's full.
+	Pop(): halves the array when one-quarter full.
+	
+	The array is 25%(~32N bytes) ~ 100%(~8N bytes) full
+	
+
+Queues:
+	Linked-List implementation:
+		public class QueuesOfStrings{
+			private first, last;
+		
+			//creats the Node class
+			private class Node{
+				String value;
+				Node next;
+			}
+			
+			public isEmpty(){
+				return first==null;
+			}
+			
+			public void enqueue(String s){
+				Node temp = last;
+				last = new Node();
+				last.value = s;
+				if(!isEmpty())
+					temp.next = last;
+				else
+					first = last;
+			}
+			
+			public String dequeue(){
+				String temp = first.value;
+				first = first.next;
+				if(isEmpty)
+					last = null;
+				return temp;
+			}
+		}
+	
+	first -> next -> next -> last
+	Enqueue: first -> next -> next -> last -> new last
+	Dequeue: next -> next -> last -> new last
+	//first will be the first to remove and last will be the last to remove
+	//the good thing about this is it is easy to dequeue by first.next to null,
+		and enqueue by pointing the last element to the new last element.
+		
+
+Generics:
+	Parameterized Stack: a stack class for different types of data.
+	Java generics: Stack<Item> //compiler check
+		Implementation:
+			public class Stack<Item>{
+			...//replacing arbitrary object type name with <Item>
+			}
+		
+		Notes: Java doesn't support generic array creation
+			So replacing new Item[size] to (Item[])new Object[size]
+
+	Autoboxing:
+		Wrapper types are object types for those primitive types 
+		int -> Integer
+		e.g.: stack.push(3); //stack.push(Integer.valueOf(3));
+		
+Iterators: Support iteration over stack items
+	let stack implements the java.lang.Iterable interface
+		public class Stack<Item> implemnets Iterable<Item>{
+			public Iterator<Item> iterator(){
+				return new ListIterator();
+			}
+			public class ListIterator implements Iterator<Item>{
+				public next(){}...
+			}
+		}
+		
+	Iterable: means that it has a method returns an Iterator
+		public interface Iterable<Item>{
+			Iterator<Item> iterator();}
+	Iterator: has methods hasNext() and next()
+		public interface Iterator<Item>{
+			boolean hasNext();
+			Item next();
+		}
+	
+	Therefore client side can use:
+		for(Item i: Stack)
+		or
+		Iterator<Item> i = stack.iterator(); //iterator() implements Iterable interface, the function returns an iterator
+		while(i.hasNext)
+	
+Bag:
+	Somehow like sets, order does not matter
+
+Java library:
+	List interface: from java.util.List
+		java.util.ArrayList uses resizing array
+		java.util.LinkedList uses linked list
+		java.util.Stack : it extends java.util.Vector which implements java.util.List
+		
+		java.util.Queue: an Interface e.g. Queue<Item> a = new LinkedList<Item>();
