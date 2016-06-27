@@ -1,0 +1,73 @@
+Reasons to analyze algorithms: Performance with guarantees
+  A good algorithm reduces time costs by Brute force solution
+  
+Scientific framework for performance analysis and algorithms comparison:
+  Observe
+  Hypothesize
+  Predict
+  Verify
+  Validate (until the hypothesis and observations agree)
+  
+  Pinciples: 
+    Experiments must be REPRODUCIBLE
+    Hypothesis must be FALSIFIABLE
+    
+Observations:
+  Measuring the running time
+  In Java public class Stopwatch (part of stdlib.jar)
+    Stopwatch stopwatch = new Stopwatch()
+    ...
+    double t = stopwatch.elapsedTime()
+  
+  * I found Stopwatch isn't part of the stdlib so I guess import stdlib.jar is required. 
+  * There are other options to record the elapsed time.
+  
+  Empirical analysis: run the program for various input sizes and measure the time
+  
+  Experimental algorithmics: 
+    System independent effects: algorithm and data
+    System dependent effects: Hardware, Software (compiler...) and system
+    
+Mathematical models for running time:
+  Total running time = sum of cost * frequency for all operations
+
+Common order-of-growth classifications:
+
+  1 constant:
+    a = b + c
+  logN logarithmic:
+    while(n>2) N /= 2;
+  N linear:
+    for(int i=0; i< N; i++)
+  NlogN linearithmic:
+    Mergesort
+  N^2 quadraic: Two loops
+  N^3 cubic: Three loops
+  2^N exponential:  combinatorial search
+  
+  //Note: log is 2-based in computer science
+  e.g. binary search: costs 1 + lgN (keep cutting half of the ordered list so lgN)
+  e.g. N^2logN algorithm for 3-SUM
+    loop twice for N^2 pairs. 
+    Apply binary Search to each pair to find the third element.
+    (N^2) * (logN)
+    
+
+
+Theory of algorithms
+
+  Best case (BigOmega): lower bound on cost.
+  Worst case(BigO): upper bound on cost.
+  Average case(BigTheta): expected cost for random input.
+  
+  e.g. for the optimal algorithm for 3-SUM
+    Upper bound: O(N^2logN) this is where the worst case happens.
+    Lower bound: What if there are only three elements? BigOmega(N)
+    
+Memory
+ 1Byte = 8bits (Please, I know all these)
+
+
+
+
+  
