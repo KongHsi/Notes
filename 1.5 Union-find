@@ -1,0 +1,38 @@
+Dynamic connectivity:
+  Given a set of N objects
+    Union command: connect two objects
+    Find/Connnected query: find a path connecting two objects
+    //It can be used in graph for example
+    Note: Name objects as 0 to N-1 such as use integers as array index
+      //suppress irrelevant details
+  Goal is to develope an efficient data structure for union-find.
+    public class UF{
+    ...
+      void Union(int p, int q)
+      boolean connected(int p, int q)
+    }
+    Quick find:
+      Array id[] of length N
+      p and q are connected iff they have the same id
+        0  1  2  3  4  5
+    id  0  0  1  1  1  1
+    so id[0] id[1] are connected
+    So we can check if two elements have the same id to determine if they are connected.
+    We can merge two group by changing their id to the same one.
+    Too expensive.
+    
+    Quick-union:
+      Lazy:
+          0  1  2  3  4
+        id0  0  1  3  4
+        So its like 0 is the parent of 1 and 1 is the parent of 2
+        
+        To merge components, we can let if of q's root to the if of p's root
+        Also too expensive
+      
+      Improvement:
+      Weighted quick-union
+        We want to avoid tall trees from quick-union
+        (keep track of size of each tree)
+        Balance by linking root of smaller tree to root of large tree
+    
