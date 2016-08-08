@@ -17,4 +17,6 @@ Selection sort: go over the list and find the min/max element
 Insertion sort: go over the list and move a[i] to the left of each larger entry
   Average Needs 1/4N^2 exchanges and compares
   
-Shell sort: 
+Shell sort: Somewhat like insertion sort except we need to determine few KEY numbers.
+  where a key number is the stride length for a insertion sort. 
+  eg. if h = 3, then we do insertion sort for the 0th, 3rd, 6th.... elements and 1st,4th,7th.......
