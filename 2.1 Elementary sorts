@@ -1,2 +1,10 @@
 Goal is to sort any type of data.
   
+Callback = reference to executable code
+
+Total order is a binary relation <= that satisfies:
+  Antisymmetry: v<=w and w<=v, then v = w
+  Transitivity: if v<=w and w<=x, then v<=x
+  Totality: either v<=w or w<=v or both
+  
+compareTo() is a total order, returns either 0, +n or -n.
