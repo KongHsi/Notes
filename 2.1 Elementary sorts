@@ -8,3 +8,13 @@ Total order is a binary relation <= that satisfies:
   Totality: either v<=w or w<=v or both
   
 compareTo() is a total order, returns either 0, +n or -n.
+
+
+
+Selection sort: go over the list and find the min/max element
+  Average Needs to compare (N-1) + (N-2) + ... + 1 + 0 ~ N^2/2 and N exchanges
+
+Insertion sort: go over the list and move a[i] to the left of each larger entry
+  Average Needs 1/4N^2 exchanges and compares
+  
+Shell sort: 
