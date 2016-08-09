@@ -20,3 +20,4 @@ Insertion sort: go over the list and move a[i] to the left of each larger entry
 Shell sort: Somewhat like insertion sort except we need to determine few KEY numbers.
   where a key number is the stride length for a insertion sort. 
   eg. if h = 3, then we do insertion sort for the 0th, 3rd, 6th.... elements and 1st,4th,7th.......
+  How to pick h? h=count/2; h=h/2;..... until h=1;
