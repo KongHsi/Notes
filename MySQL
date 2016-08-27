@@ -8,3 +8,8 @@ net stop mysql
 mysql -uroot -p1234 -P3306 -h127.0.0.1
 prompt \u@\h \d>
 
+simple example:
+SELECT USER();
+SELECT VERSION();
+
+Key words, functions name should be capitalized. database, table name should be in lower-case.
