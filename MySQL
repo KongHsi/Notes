@@ -13,3 +13,5 @@ SELECT USER();
 SELECT VERSION();
 
 Key words, functions name should be capitalized. database, table name should be in lower-case.
+
+CREAT{DATABASE|SCHEMA}[IF NOT EXIST] db_name
